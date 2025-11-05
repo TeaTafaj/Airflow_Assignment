@@ -22,7 +22,7 @@
 
 ---
 
-## 🧠 Overview
+##  Overview
 This project builds an **end-to-end data pipeline** using **Apache Airflow** to automate the ingestion, transformation, loading, and analysis of **The Movie Database (TMDB)** datasets. The DAG demonstrates:
 - Parallel task execution.
 - Proper task dependencies and cleanup.
@@ -31,7 +31,7 @@ This project builds an **end-to-end data pipeline** using **Apache Airflow** to 
 
 ---
 
-## 🔄 Pipeline Workflow
+##  Pipeline Workflow
 1. **Ingest Data**: Reads two CSVs from `/data/raw/`.
 2. **Bronze Stage**: Cleans and validates both datasets (movies and credits).
 3. **Silver Stage**: Merges the two cleaned datasets into one enriched dataset.
@@ -41,7 +41,7 @@ This project builds an **end-to-end data pipeline** using **Apache Airflow** to 
 
 ---
 
-## 🎬 Dataset Description
+##  Dataset Description
 Source: [Kaggle TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)  
 
 | File | Description |
@@ -51,7 +51,7 @@ Source: [Kaggle TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tm
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 airflow-tmdb/
 ├─ dags/
@@ -76,7 +76,7 @@ airflow-tmdb/
 
 ---
 
-## ⚙️ Technical Stack
+##  Technical Stack
 | Component | Purpose |
 |------------|----------|
 | **Apache Airflow** | Orchestration & task scheduling |
@@ -87,7 +87,7 @@ airflow-tmdb/
 
 ---
 
-## 🧩 DAG Architecture
+##  DAG Architecture
 ```text
 create_tables
  │
@@ -108,7 +108,7 @@ create_tables
 
 ---
 
-## 🚀 Execution Steps
+##  Execution Steps
 ### Run the pipeline locally
 ```bash
 # 1️⃣ Start Airflow and Postgres containers
@@ -129,7 +129,7 @@ docker compose exec airflow bash -lc "ls -la /opt/airflow/data/outputs && head -
 
 ---
 
-## 📊 Results
+##  Results
 Example output (`data/outputs/top_genres_by_rating.csv`):
 ```
 genre,n_movies,avg_vote
@@ -141,14 +141,14 @@ Action,420,6.73
 
 ---
 
-## ⚡ Parallelism & XCom Design
+##  Parallelism & XCom Design
 - **Parallel tasks:** `bronze_movies` and `bronze_credits` run simultaneously to improve runtime.
 - **XCom usage:** Only **file paths** (strings) are passed between tasks — never raw data.
 - **Dependencies:** Downstream tasks wait only on the files they need.
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 1. **Airflow DAGs page** — showing `tmdb_pipeline` enabled.
 ![alt text](image.png)
 2. **Graph View** — all tasks green.
