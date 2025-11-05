@@ -2,7 +2,7 @@
 
 **Author:** Tea Tafaj  
 **Environment:** Apache Airflow 2.10.2 (Python 3.11) + Postgres 13  
-**Repository:** [https://github.com/<your-username>/airflow-tmdb  ](https://github.com/TeaTafaj/Airflow_Assignment.git)
+**Repository:** https://github.com/TeaTafaj/Airflow_Assignment.git
 **Status:** ✅ Successful DAG Run
 
 ---
